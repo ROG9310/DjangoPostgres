@@ -1,0 +1,772 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Alvamex - Intranet News</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+
+
+    <!-- Favicon -->
+    <link href="{% static 'imagenes/GrupoALVA_2.png' %}" rel="icon">    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+
+    <link href="{% static 'imagenes/GrupoALVA_2.png'%}" rel="icon">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'javasript/followers.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<style>
+    :root{
+        --principal: #f40d9a;
+        --sombra: #009ce4;
+    }
+    #iconos_redes{
+        color:white;
+        font-size:1vw;
+    }
+    #iconos_redes:hover{
+        color:var(--principal);
+        scale:1.5;
+    }
+</style>
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none d-lg-block">
+        <div class="row align-items-center bg-dark px-lg-12">
+            <div class="col-lg-7">
+                <div class="col-lg-12 text-left d-none d-md-block">
+                    <nav class="navbar navbar-expand-sm bg-dark p-0">
+                        <ul class="navbar-nav ml-auto mr-n2">
+                            <li class="nav-item">
+                                <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i id="iconos_redes" class="bi bi-tiktok"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.facebook.com/Alvamex"><i id="iconos_redes" class="bi bi-facebook"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.linkedin.com/company/alvamex/"><i id="iconos_redes" class="bi bi-linkedin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.instagram.com/alvamex_oficial/?hl=es"><i id="iconos_redes" class="bi bi-instagram"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.youtube.com/@alvamexpinturas3301"><i id="iconos_redes" class="bi bi-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center bg-white py-0 px-lg-3" >
+            <div class="col-lg-8">
+                <a href="/alvaenvases/" class="navbar-brand p-0 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-uppercase text-primary">Intranet<span class="text-secondary font-weight-normal">News</span></h1>
+                </a>
+            {% if messages %}
+   
+                {% for message in messages %}
+                    <h3>{{ message }}</h3>
+                {% endfor %}
+            {% endif %}
+            </div>
+            <div class="col-lg-4 text-center text-lg-right" style="height: 7rem;">
+                <a href="https://www.alvaenvases.com.mx/"><img class="img-fluid" src="{% static 'imagenes/LogoAlvaEnvases.jpg' %}" alt="Alvamex" style="height: 100%;"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div id ="Navbar" class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-uppercase text-primary">Intranet<span class="text-white font-weight-normal">News</span></h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/alvaenvases/" class="nav-item nav-link">Inicio</a>
+                    <a href="/alvaenvases/aprom/" class="nav-item nav-link">Promociones</a>
+                    <a href="#ultimasnoticias" class="nav-item nav-link">Noticias Recientes</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modulos</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/alvaenvases/auniversidad/" class="dropdown-item">Universidad</a>
+                            <a href="/alvaenvases/acedis/" class="dropdown-item">Ubicación de Cedis</a>
+                            <a href="/alvaenvases/aprocesos/" class="dropdown-item">Procesos y Politicas</a>
+                        </div>
+                    </div>
+                    <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
+                </div>
+                <div class="navbar-nav  py-0" style="width: 100%; max-width: 300px;">
+                    {% if user.is_authenticated %}
+                    <a id="cerrar_sesion" href="/logout" class="nav-item nav-link">CERRAR SESIÓN</a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Main News Slider Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7 px-0">
+                <div  class="carousel slide" data-bs-ride="carousel" style="height: 500px; overflow:hidden;">
+                    <div class="carousel-inner" style="height: 500px;">
+                        <div class="carousel-item active" style="height: 500px;">
+                            <img class="img-fluid h-100 w-100" src="{% static 'imagenes/noticia-1.jpg' %}" style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                        href="#" data-toggle="modal" data-target="#exampleModal1"> Noticia</a>
+                                </div>
+                                <a  href="#" data-toggle="modal" data-target="#exampleModal1" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">Dirección General, motivacion para su equipo.</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item " style="height: 500px;">
+                            <img class="img-fluid  w-100" src="{% static 'imagenes/noticia-2.jpg' %}" style="object-fit: cover;height: 500px;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="#" data-toggle="modal" data-target="#exampleModal2"> Noticia</a>
+                                </div>
+                                <a  href="#" data-toggle="modal" data-target="#exampleModal2" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">Dinamica tekiio</a>
+                            </div>
+                        </div>                   
+                        <div class="carousel-item " style="height: 500px;">
+                            <img class="img-fluid h-100 w-100" src="{% static 'imagenes/noticia-3.jpg' %}" style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="#" data-toggle="modal" data-target="#exampleModal3"> Noticia</a>
+                                </div>
+                                <a  href="#" data-toggle="modal" data-target="#exampleModal3" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">KICK OFF ¡Nuevo Inicio!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal 1 carusel -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1" style="color: #fff; text-align: center;">Dirección General, motivacion para su equipo.</h5>
+                                <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="img-fluid w-100 " src="{% static 'imagenes/noticia-3.jpg' %}" style="object-fit: cover;">
+                            <div class="modal-body">
+                                Dando inicio al Kick Off Alvamex junto Tekiio, el C. Andres Alva dio un breve discurso
+                                para introducir a todo Grupo Alva a nuestro nuevo proyecto de implementacion NetSuite Oracle, dejando en claro su vision a futuro del exito para todos.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal 2 carusel-->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2" style="color: #fff; text-align: center;">Dinamica tekiio</h5>
+                                <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="img-fluid w-100 " src="{% static 'imagenes/noticia-2.jpg' %}" style="object-fit: cover;">
+                            <div class="modal-body">
+                                Tekiio de la mano con Grupo Alva llevo acabo una serie de dinamicas con el fin de reunir informacion primordial para la implementacion, que se puede mejorar, que se puede agregar y que se puede proteger de Grupo Alva, todo esto con el fin de comprender/informar las necesidades del equipo.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal 3 carusel-->
+                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel3" style="color: #fff; text-align: center;">KICK OFF ¡Nuevo Inicio!</h5>
+                                <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="img-fluid w-100" src="{% static 'imagenes/noticia-3.jpg' %}" style="object-fit: cover;">
+                            <div class="modal-body">
+                                Nuevo inicio para Grupo Alva de la mano con tekiio. ¡El festejo continua! Gracias equipo tekiio por los buenos deseos, el equipo de Grupo Alva esta "caminando a un futuro brillante"
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="col-lg-5 px-0">
+                <div class="row mx-0">
+                    <div class="col-md-6 px-0">
+                        <div class="position-relative overflow-hidden" style="height: 250px;">
+                            <img class="img-fluid w-100 h-100" src="{% static 'imagenes/perfect.jpg' %}" style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="#" data-toggle="modal" data-target="#exampleModal4"> Noticia</a>
+                                </div>
+                                <a  href="#" data-toggle="modal" data-target="#exampleModal4" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">Alianza Comercial "Perfect"</a>
+                            </div>
+                        </div>
+                    </div>           
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel4" style="color: #fff; text-align: center;">Alianza Comercial "Perfect"</h5>
+                                    <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <img class="img-fluid w-100 " src="{% static 'imagenes/alvatech.jpg' %}" style="width: 40vw; height: 60vh;">
+                                <div class="modal-body">
+                                    La combinación Perfecta de nuestra pintura de alta calidad con las herramientas excepcionales de Brochas Perfect nos permitirá ofrecer a nuestros clientes una experiencia de pintura inigualable.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-0">
+                        <div class="position-relative overflow-hidden" style="height: 250px;">
+                            <img class="img-fluid w-100 h-100" src="{% static 'imagenes/oracle.png' %}" style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                        href="#" data-toggle="modal" data-target="#exampleModal5"> Noticia</a>
+                                </div>
+                                <a  href="#" data-toggle="modal" data-target="#exampleModal5" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">Oracle Cloud Infraestructure</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal 5-->
+                    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel5" style="color: #fff; text-align: center;">Oracle Cloud Infraestructure</h5>
+                                    <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <img class="img-fluid w-100 " src="{% static 'imagenes/oracle.png' %}" style="object-fit: cover; height: 50vh;">
+                                <div class="modal-body">
+                                    Como software de gestión empresarial basada en la nube con una posición líder en el mundo, las soluciones de software como servicio (Software-as-a-Service, SaaS) de Oracle NetSuite preparan a los estudiantes para el mundo empresarial al ayudarlos a desarrollar las habilidades clave que buscan los empleadores hoy en día. NetSuite es una solución escalable que proporciona visibilidad, control y agilidad a las organizaciones de rápido crecimiento.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                            <div class="position-relative overflow-hidden" style="height: 250px;">
+                                <img class="img-fluid w-100 h-100" src="{% static 'imagenes/alvatech.jpg' %}" style="object-fit: cover;">
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                        href="#" data-toggle="modal" data-target="#exampleModal6">Noticia</a>
+                                    </div>
+                                    <a class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold"href="#" data-toggle="modal" data-target="#exampleModal6">Nuevo Producto ¡Conocelo!</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Modal 6-->
+                    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel6" style="color: #fff; text-align: center;">Nuevo Producto ¡Conocelo!</h5>
+                                <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="img-fluid w-100 " src="{% static 'imagenes/alvatech.jpg' %}" style="width: 40vw; height: 60vh;">
+                            <div class="modal-body">
+                                Comprueba la calidad de los impermeabilizantes AlvaTech ⛱, consiente a tu hogar y protégelo 🤜🤛. Pancho pintor de lo recomienda 👌.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <img class="img-fluid w-100 h-100" src="{% static 'imagenes/nuwvos colores alvacril.png' %}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href="#" data-toggle="modal" data-target="#exampleModal7">Noticia</a>
+
+                            </div>
+                            <a  href="#" data-toggle="modal" data-target="#exampleModal7" class="h6 m-0 text-white bg-dark p-1 text-uppercase font-weight-semi-bold">Nuevos Colores ¡Un Alvacril renovado!</a>
+
+                        </div>
+                    </div>
+                </div>
+                    <!-- Modal 7-->
+                <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel7" style="color: #fff; text-align: center;">Nuevos Colores ¡Un Alvacril renovado!</h5>
+                                <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="img-fluid w-100 " src="{% static 'imagenes/nuwvos colores alvacril.png' %}" style="object-fit: cover; height: 50vh;">
+                            <p class="modal-body">
+                                ¡Descubre la excelencia en pintura con Alvacril Gold! ✨🎨 ¿Estás buscando la pintura perfecta para transformar tu hogar o edificio? Presentamos Alvacril Gold, la elección premium tanto para interiores como exteriores. Con su fórmula de calidad superior y sus nuevos colores.
+                            </p>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breaking News Start -->
+    <div class="container-fluid bg-dark py-3 mb-3">
+        <div class="container">
+            <div class="row align-items-center bg-dark">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                       
+                        <div class="position-relative d-inline-flex align-items-center ml-3"
+                            style="width: calc(100% - 170px); padding-right: 90px;">
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold">Descarga aqui el bolentin del mes! Enterate de mas detalles</a>
+                            </div>
+                        </div>
+                        <a style="margin-right:0; padding:0;color:black;" href="{% static 'filesPDF/Septiembre 2024 T.pdf' %}" target="_blank" class="btn bg-primary text-center font-weight-medium p-2 w-25" >TRADE POLYMERS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breaking News End -->
+
+
+
+
+    <!-- Featured News Slider Start -->
+    
+    <!-- Featured News Slider End -->
+
+
+    <!-- News With Sidebar Start -->
+    <div id="ultimasnoticias" class="container-fluid py-3 mb-3 ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title bg-dark">
+                                <h4 class="m-0 text-uppercase font-weight-bold ">Ultimas Noticias</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="{% static 'imagenes/not-6.jpg' %}" style="object-fit: cover;">
+                                <div class="bg-dark border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                            href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-3 text-primary text-uppercase font-weight-bold" href="">Repintado Automotriz</a>
+                                    <p class="m-0">Prueba los mejores productos para el repintado automotriz, sólo Macrol Pro te los ofrece.</p>
+                                </div>
+                                <div class="d-flex justify-content-center bg-dark border border-top-0 p-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle mr-2" src="{% static 'imagenes/user.png' %}" width="25" height="25" alt="">
+                                        <small>Alondra Tolentino</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100 h-100" src="{% static 'imagenes/not-7.jpg' %}" style="object-fit: cover;">
+                                <div class="bg-dark border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                            href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-3 text-primary text-uppercase font-weight-bold" href="">Alvimex Sellador Vinilico</a>
+                                    <p class="m-0">Nuestro sellador vinílico es la clave para preparar tus paredes de manera efectiva, sellando superficies nuevas o a repintar.</p>
+                                </div>
+                                <div class="d-flex justify-content-center bg-dark border border-top-0 p-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle mr-2" src="{% static 'imagenes/user.png' %}" width="25" height="25" alt="">
+                                        <small>Josmar Bautista</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <a href=""><img class="img-fluid w-100" src="img/ads-728x90.png" alt=""></a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="{% static 'imagenes/not-8.jpg' %}" style="object-fit: cover;">
+                                <div class="bg-dark border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                            href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-0 text-primary text-uppercase font-weight-bold" href="">Alvamancha Tinta</a>
+                                    <p class="m-0">Alvamancha está diseñada para embellecer y resaltar la veta natural de la madera, esta tinta está hecha con pigmentos de alta calidad que garantizan un acabado duradero y espectacular.</p>
+                                </div>
+                                <div class="d-flex justify-content-center bg-dark border border-top-0 p-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle mr-2" src="{% static 'imagenes/user.png' %}" width="25" height="25" alt="">
+                                        <small>Rene Ojeda</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="{% static 'imagenes/not-5.jpg' %}" style="object-fit: cover;">
+                                <div class="bg-dark border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                            href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-0 text-primary text-uppercase font-weight-bold" href="">Encuentra nuestros cedis</a>
+                                    <p class="m-0">Estamos en toda la república,🤩 acercamos el producto en todo el territorio nacional gracias a nuestros CEDIS. ¡Conócelos! ¡Siempre cerca de ti!</p>
+                                </div>
+                                <div class="d-flex justify-content-center bg-dark border border-top-0 p-4 text-al">
+                                    <div class="d-flex">
+                                        <img class="rounded-circle mr-2" src="{% static 'imagenes/user.png' %}" width="25" height="25" alt="">
+                                        <small>Camila Cabello</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="img/news-110x110-1.jpg" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-primary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="img/news-110x110-2.jpg" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-primary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="img/news-110x110-3.jpg" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-primary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="img/news-110x110-4.jpg" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-primary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <a href=""><img class="img-fluid w-100" src="img/ads-728x90.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Social Follow Start -->
+                    <div class="mb-3  ">
+                        <div class="section-title mb-0 bg-dark">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Redes Sociales</h4>
+                        </div>
+                        <div class=" border border-top-0 p-3">
+                            <a href="https://www.facebook.com/Alvamex" target="_blank"class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+                                <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span id="followers">37 mil Seguidores</span>
+                            </a>
+                            <a href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1 " target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #01182b;">
+                                <i class="fab fa-tiktok text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">84 Seguidores</span>
+                            </a>
+                            <a href="https://www.linkedin.com/company/alvamex/" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
+                                <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">859 Seguidores</span>
+                            </a>
+                            <a href="https://www.instagram.com/alvamex_oficial/?hl=es" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+                                <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">2368 Seguidores</span>
+                            </a>
+                            <a href="https://www.youtube.com/@alvamexpinturas3301" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+                                <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">722 Suscriptores</span>
+                            </a>
+        
+                        </div>
+                    </div>
+                    <!-- Social Follow End -->
+
+                    <!-- Ads Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0 bg-dark">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Anuncios</h4>
+                        </div>
+                        <div class=" text-center border border-top-0 p-3">
+                            <a href=""><img class="img-fluid" src="{% static 'imagenes/anuncio-2.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- Ads End -->
+
+                    <!-- Popular News Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0 bg-dark">
+                            <h4 class="m-0 text-uppercase font-weight-bold">¡CUMPLEAÑOS!</h4>
+                        </div>
+                        <div class=" border border-top-0 p-3  overflow-auto" style="height:40vh;">
+                            <div class="d-flex bg-light align-items-center mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">¡FELIZ CUMPLEAÑOS!</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-light mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">¡FELIZ CUMPLEAÑOS!</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-light mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">¡FELIZ CUMPLEAÑOS!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-title mb-0 bg-dark">
+                            <h4 class="m-0 text-uppercase font-weight-bold">¡ANIVERSARIOS!</h4>
+                        </div>
+                        <div class="border border-top-0 p-3 overflow-auto" style="height:40vh;">
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-primary text-uppercase font-weight-bold" href="">¡FELIZ ANIVERSARIO!</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">¡FELIZ ANIVERSARIO!</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center bg-dark mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="{% static 'imagenes/cum.png' %}" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Enviar</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">¡FELIZ ANIVERSARIO!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Popular News End -->
+
+                    <!-- Newsletter Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0 bg-dark ">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Noticias Pasadas</h4>
+                        </div>
+                        <div class="bg-dark text-center border border-top-0 p-3">
+                            <p>¿Te perdiste de algo? Tranquilo aca te lo enviamos</p>
+                            <div class="input-group mb-2" style="width: 100%;">
+                                <input type="text" class="form-control form-control-lg" placeholder="¿Qué noticia buscas?">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary font-weight-bold px-3">Enviar</button>
+                                </div>
+                            </div>
+                            <small>Destacados</small>
+                        </div>
+                    </div>
+                    <!-- Newsletter End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->
+
+
+    <!-- Footer Start -->
+    <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-1">
+        <div class="row py-4">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Encuentranos en</h5>
+                <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Guadalajara #29,Col. Constitución de 1917, Tlanepantla, Edo. de México C.P 54190</p>
+                <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>55 5569 6433, 55 5569 6591</p>
+                <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>atencionclientes@alvamex.com.mx</p>
+                <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Siguenos</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.facebook.com/Alvamex"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.linkedin.com/company/alvamex/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.instagram.com/alvamex_oficial/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square" href="https://www.youtube.com/@alvamexpinturas3301"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Noticias mas Populares</h5>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+                <div class="">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Galeria</h5>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <a href="#noticias_principales"><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt="perfect"></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-4 px-sm-3 px-md-5 bg-dark" style="">
+        <p class="m-0 text-center" style="color: #fff; font-weight:600;">&copy; <span href="#">Copyright</span>. Todos los derechos reservados. 
+		Diseñado para <a style="color: #fff; font-weight:600;" id="copy_footer" href="https://www.alvamex.com.mx/">Alvamex Quimica S.A De C.V</a></p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

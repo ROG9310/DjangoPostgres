@@ -1,0 +1,225 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Grupo Alva </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{% static 'imagenes/GrupoALVA_2.png'%}" rel="icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/parallax.css' %}">
+</head>
+
+<body>
+<style>
+    :root{
+        --principal: #44b5e1;
+        --sombra: #1e6e8d;
+    }
+    #iconos_redes{
+        color:white;
+        font-size:1vw;
+    }
+    #iconos_redes:hover{
+        color:var(--principal);
+        scale:1.5;
+    }
+</style>
+
+<header id="header">
+           
+            
+</header>
+
+<section id="scene">
+    <img src="{% static 'imagenes/parallax/mix-cold-colors-water.jpg' %}" id="splash">
+    <img src="{% static 'imagenes/parallax/colibri-1.png' %}" id="text">
+    <img src="{% static 'imagenes/parallax/TP-NEGRO.png' %}" id="baloon1">
+    <img src="{% static 'imagenes/parallax/alvamex.png' %}" id="baloon2">
+    <img src="{% static 'imagenes/parallax/diamante.png' %}" id="baloon3">
+    <img src="{% static 'imagenes/parallax/vastrox.png' %}" id="color1">
+    <img src="{% static 'imagenes/parallax/ae.png' %}" id="color2">
+    <img src="{% static 'imagenes/parallax/.png' %}" id="watergun1">
+    <img src="{% static 'imagenes/parallax/.png' %}" id="watergun2">
+    
+</section>
+
+
+<script>
+    let splash = document.getElementById("splash")
+    let text = document.getElementById("text")
+    let baloon1 = document.getElementById("baloon1");
+    let baloon2 = document.getElementById("baloon2");
+    let baloon3 = document.getElementById("baloon3");
+    let color1 = document.getElementById("color1");
+    let color2 = document.getElementById("color2");
+    let watergun1 = document.getElementById("watergun1");
+    let watergun2 = document.getElementById("watergun2");
+
+    window.addEventListener("scroll", function(){
+        let value = window.scrollY;
+        splash.style.top = value * 0.60+'px';
+        text.style.top = value * -1 +'px';
+        baloon1.style.left = value * -5+'px';
+        baloon2.style.top = value * 5+'px';
+        baloon3.style.top = value * 5+'px';
+        color1.style.top = value * -5+'px';
+        color2.style.left = value * 5+'px';
+        watergun1.style.left = value * -0.75+'px';
+        watergun2.style.left = value * 0.75+'px';
+    })
+</script>
+
+
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none d-lg-block" >
+        <div class="row align-items-center bg-dark px-lg-12">
+            <div class="col-lg-7">
+                <div class="col-lg-12 text-left d-none d-md-block">
+                    <nav class="navbar navbar-expand-sm  bg-dark p-0">
+                        <ul class="navbar-nav ml-auto mr-n2">
+                            <li class="nav-item">
+                                <a class="nav-link text-body" target="blank_" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i id="iconos_redes" class="bi bi-tiktok"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-body" target="blank_" href="https://www.facebook.com/Alvamex"><i id="iconos_redes" class="bi bi-facebook"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-body" target="blank_" href="https://www.linkedin.com/company/alvamex/"><i id="iconos_redes" class="bi bi-linkedin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-body" target="blank_" href="https://www.instagram.com/alvamex_oficial/?hl=es"><i id="iconos_redes" class="bi bi-instagram"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-body" target="blank_" href="https://www.youtube.com/@alvamexpinturas3301"><i id="iconos_redes" class="bi bi-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center bg-white py-0 px-lg-3" >
+            <div class="col-lg-8">
+                <a href="/signin/" class="navbar-brand p-0 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-uppercase text-primary">Grupo Alva<span class="text-secondary font-weight-normal"> Corporativo</span></h1>
+                </a>
+            </div>
+            <div class="col-lg-4 text-center text-lg-right" style="height: 7rem;">
+                <a href="/signin/"><img class="img-fluid" src="{% static 'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div id ="Navbar" class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="#" class="nav-item nav-link">Promociones</a>
+                    <a href="#ultimasnoticias" class="nav-item nav-link">Noticias Recientes</a>
+
+                    <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <div class="container-fluid bg-dark" style="height:77vh;">
+
+    </div>
+
+    <!-- Footer Start -->
+    <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-0">
+        <div class="row py-4">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Encuentranos en</h5>
+                <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Guadalajara #29,Col. Constitución de 1917, Tlanepantla, Edo. de México C.P 54190</p>
+                <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>55 5569 6433, 55 5569 6591</p>
+                <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>atencionclientes@alvamex.com.mx</p>
+                <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Siguenos</h6>
+                <div class="d-flex justify-content-start">
+                    <a id="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i class="bi bi-tiktok"></i></a>
+                    <a id="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.facebook.com/Alvamex"><i class="bi bi-facebook"></i></a>
+                    <a id="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.linkedin.com/company/alvamex/"><i class="bi bi-linkedin"></i></a>
+                    <a id="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.instagram.com/alvamex_oficial/"><i class="bi bi-instagram"></i></a>
+                    <a id="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square" href="https://www.youtube.com/@alvamexpinturas3301"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Noticias mas Populares</h5>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+                <div class="">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Noticia</a>
+                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    </div>
+                    <a class="small text-body text-uppercase font-weight-medium" href="">Capacitacion Facturacion MBA3...</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Galeria</h5>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <a href="#noticias_principales"><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt="perfect"></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/perfect.jpg'%}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid px-sm-3 px-md-5 bg-dark" style="">
+        <p class="m-0 text-center" style="color: #fff; font-weight:600;">&copy; <span href="#">Copyright</span>. Todos los derechos reservados. 
+		Diseñado para <a style="color: #fff; font-weight:600;" id="copy_footer" href="https://www.alvamex.com.mx/">Alvamex Quimica S.A De C.V</a></p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+</body>
