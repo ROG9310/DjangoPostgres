@@ -13,18 +13,128 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-   
+    <link rel="stylesheet" href="{% static 'css/parallax.css' %}">
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/slick.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/parallax.css' %}">
+
 </head>
 
 <body>
 <style>
+
     :root{
         --principal: #44b5e1;
         --sombra: #1e6e8d;
     }
+    
+    .card{
+        margin:5%;
+        margin-left:20%;
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border-radius: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        background: none;
+    }
+    .card:hover{
+        width: 600px;
+        transition-delay: 0.5s;
+        
+    }
+    .card .circle{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card .circle::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        border: 8px solid var(--clr);
+        background: #191919;
+        transition: 0.5s, background 0.5s;
+        transition-delay: 0.75s,1s;
+        filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+    }
+    .card:hover .circle::before{
+        width: 100%;
+        transition-delay: 0.5s;
+        height: 100%;
+        border-radius: 20px;
+        background: var(--bg);
+    }
+    .card .circle .logo{
+        position: relative;
+        width: 450px;
+        transition: 0.5s;
+        transition-delay: 0.5s;
+        filter: drop-shadow(10px 10px  10px var(--clr)) drop-shadow(0 0 100px var(--clr));
+    }
+    .card:hover .circle .logo{
+        transform: scale(0);
+        transition-delay: 0s;
+    }
+    .card .product_img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0) rotate(315deg);
+        height: 300px;
+        transition: 0.5s ease-in-out;
+    }
+    .card:hover .product_img{
+        transition-delay: 0.75s;
+        transform: translate(-50%,-50%) scale(1) rotate(45deg);
+        top: 40%;
+        left: 70%;
+        height: 150px;
+        width: 400px;
+        filter: drop-shadow(10px 10px  10px black) drop-shadow(0 0 100px black);
+    }
+    .card .content{
+        position:absolute;
+        width: 50%;
+        left: 20%;
+        padding: 20px 20px 20px 40px;
+        opacity: 0;
+        transition: 0.5s;
+        visibility: hidden;
+        
+    }
+    .card:hover .content{
+        transition-delay: 0.75s;
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+    }
+    .card .content h2{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 2.4em;
+        line-height: 1em;
+    }
+    .card .content p{
+        color: #fff;
+    }
+
+    #tit_empresa{
+        color:white;
+        filter: drop-shadow(0 0 5px var(--clr)) drop-shadow(0 0 5px var(--clr));
+    }
+
+
     #iconos_redes{
         color:white;
         font-size:1vw;
@@ -35,23 +145,19 @@
     }
 </style>
 
-<header id="header">
-           
-            
-</header>
-
-<section id="scene">
-    <img src="{% static 'imagenes/parallax/mix-cold-colors-water.jpg' %}" id="splash">
-    <img src="{% static 'imagenes/parallax/colibri-1.png' %}" id="text">
-    <img src="{% static 'imagenes/parallax/TP-NEGRO.png' %}" id="baloon1">
-    <img src="{% static 'imagenes/parallax/alvamex.png' %}" id="baloon2">
-    <img src="{% static 'imagenes/parallax/diamante.png' %}" id="baloon3">
-    <img src="{% static 'imagenes/parallax/vastrox.png' %}" id="color1">
-    <img src="{% static 'imagenes/parallax/ae.png' %}" id="color2">
-    <img src="{% static 'imagenes/parallax/.png' %}" id="watergun1">
-    <img src="{% static 'imagenes/parallax/.png' %}" id="watergun2">
-    
-</section>
+    <section id="scene">
+        <img src="{% static 'imagenes/parallax/mix-cold-colors-water.jpg' %}" id="splash">
+        <img src="{% static 'imagenes/parallax/colibri-1.png' %}" id="text">
+        <img src="{% static 'imagenes/parallax/TP-NEGRO.png' %}" id="baloon1">
+        <img src="{% static 'imagenes/parallax/alvamex.png' %}" id="baloon2">
+        <img src="{% static 'imagenes/parallax/diamante.png' %}" id="baloon3">
+        <img src="{% static 'imagenes/parallax/vastrox.png' %}" id="color1">
+        <img src="{% static 'imagenes/parallax/ae.png' %}" id="color2">
+        <!--
+        <img src="{% static 'imagenes/parallax/.png' %}" id="watergun1">
+        <img src="{% static 'imagenes/parallax/.png' %}" id="watergun2">
+        -->
+    </section>
 
 
 <script>
@@ -116,7 +222,7 @@
                 </a>
             </div>
             <div class="col-lg-4 text-center text-lg-right" style="height: 7rem;">
-                <a href="/signin/"><img class="img-fluid" src="{% static 'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
+                <a href="/signin/"><img class="img-fluid"  src="{% static 'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
             </div>
         </div>
     </div>
@@ -139,12 +245,71 @@
         </nav>
     </div>
     <!-- Navbar End -->
-
-
-    <div class="container-fluid bg-dark" style="height:77vh;">
-
+    <div class="container-fluid bg-dark">
+        <div class="container-fluid row mt-2 bg-none">
+            <div class="col-lg-6 allign-center">
+                <div class="card allign-center">
+                    <div class="circle" style="--clr:#0491f6; --bg:#0428f5ae;">
+                        <img src="{% static 'imagenes/alv_blancas.png' %}" alt="" class="logo">
+                    </div>
+                    <div class="content">
+                        <h2>Alvamex</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
+                        <a class="btn btn-dark" href="#">Export more</a>
+                    </div>
+                    <img src="{% static 'imagenes/alv_blancas.png' %}" alt="" class="product_img">
+                </div>
+            </div>
+            <div class="col-lg-6 bg-none p-5">
+                <h1 class="text-center text-md" id="tit_empresa" style="--clr:#0491f6">
+                    Alvamex Química
+                </h1>
+            </div>
+        </div>
+        <div class="container-fluid row  bg-none">
+            <div class="col-lg-6 bg-none p-5">
+                <h1 class="text-center text-md" id="tit_empresa" style="--clr:#34d019">
+                    Diamante Pinturas
+                </h1>
+            </div>
+            <div class="col-lg-6 bg-none p-5">
+                <div class="card allign-center">
+                    <div class="circle" style="--clr:#34d019; --bg:#218e28ae;">
+                        <img src="{% static 'imagenes/diama_blancas.png' %}" alt="" class="logo">
+                    </div>
+                    <div class="content">
+                        <h2>Diamante</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
+                        <a class="btn btn-dark" href="#">Export more</a>
+                    </div>
+                    <img src="{% static 'imagenes/diama_blancas.png' %}" alt="" class="product_img">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid row bg-none">
+            <div class="col-lg-6 allign-center">
+                <div class="card allign-center">
+                    <div class="circle" style="--clr:#f40d9a; --bg:#701f5fae;">
+                        <img src="{% static 'imagenes/ae_blancas.png' %}" alt="" class="logo">
+                    </div>
+                    <div class="content">
+                        <h2>AlvaEnvases</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
+                        <a class="btn btn-dark" href="#">Export more</a>
+                    </div>
+                    <img src="{% static 'imagenes/ae_blancas.png' %}" alt="" class="product_img">
+                </div>
+            </div>
+            <div class="col-lg-6 bg-none p-5">
+                <h1 class="text-center text-md" id="tit_empresa" style="--clr:#f40d9a;">
+                    Alvaenvases
+                </h1>
+            </div>
+        </div>
     </div>
+    
 
+    
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-0">
         <div class="row py-4">
@@ -223,3 +388,4 @@
     <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 </body>
+<html>

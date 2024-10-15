@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TaskForm, VacantesAForm,UbicacionesForm
-from .models import Tareas, VacanteActivas
+from .models import Tareas, VacanteActivas,Cursos
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -95,6 +95,8 @@ def signin(request):
                 return redirect('diamante')
             elif domain == 'tradepolymers.com.mx':
                 return redirect('trade-polymers')
+            elif domain == 'alvaenvases.com.mx':
+                return redirect('alvaenvases')
             else:
                 return render(request, 'signin.html',{
                 'form': AuthenticationForm,
@@ -127,7 +129,7 @@ def promociones(request):
     })
     
 @login_required
-def procesos(request):
+def procesos(request):    
     return render(request,'procesos.html',{
     })
     
@@ -139,7 +141,9 @@ def dintranet(request):
     
 @login_required
 def duniversidad(request):
+    cursos = Cursos.objects.all().select_related('user')
     return render(request,'duniversidad.html',{
+        'cursos' : cursos
     })
     
 @login_required
@@ -203,8 +207,12 @@ def ubicacionesCedis(request):
 
 @login_required
 def universidad(request):
+    cursos = Cursos.objects.all().select_related('user')
     return render(request,'universidad.html',{
+        'cursos' : cursos
     })
+    
+    
 @login_required
 def dprom(request):
     return render(request,'dprom.html',{
@@ -228,4 +236,26 @@ def tcedis(request):
 @login_required
 def tprocesos(request):
     return render(request,'tprocesos.html',{
+    })
+    
+@login_required    
+def alvaenvases(request):
+    messages.success(request, f'¡Bienvenid@, {request.user.first_name} {request.user.last_name}!')
+    return render(request,'alvaenvases.html',{
+    })
+@login_required
+def aprom(request):
+    return render(request,'aprom.html',{
+    })
+@login_required
+def auniversidad(request):
+    return render(request,'auniversidad.html',{
+    })
+@login_required
+def acedis(request):
+    return render(request,'acedis.html',{
+    })
+@login_required
+def aprocesos(request):
+    return render(request,'aprocesos.html',{
     })

@@ -28,5 +28,10 @@ urlpatterns = [
     path('trade-polymers/tuniversidad/', views.tuniversidad, name="tuniversidad"),
     path('trade-polymers/tcedis/', views.tcedis, name="tcedis"),
     path('trade-polymers/tprocesos/', views.tprocesos, name="tprocesos"),
+    path('alvaenvases/', views.alvaenvases, name="alvaenvases"),
+    path('alvaenvases/aprom/', views.aprom, name="aprom"),
+    path('alvaenvases/auniversidad/', views.auniversidad, name="auniversidad"),
+    path('alvaenvases/acedis/', views.acedis, name="acedis"),
+    path('alvaenvases/aprocesos/', views.aprocesos, name="aprocesos"),
 ]
  

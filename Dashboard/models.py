@@ -75,3 +75,13 @@ class Empresas(models.Model):
     empresa = models.CharField(max_length=10)
     def __str__(self):
         return self.empresa
+
+class Cursos(models.Model):
+    curso = models.CharField(max_length=100)
+    descripcion = models.TextField(blank=True)
+    imagen = models.CharField(max_length=100)
+    empresa_curso = models.CharField(max_length=50)
+    archivo = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.curso + ' - ' + self.empresa_curso
