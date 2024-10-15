@@ -111,6 +111,7 @@
             cursor: pointer;
         }
 
+
     #iconos_redes{
         color:white;
         font-size:1vw;
@@ -119,13 +120,16 @@
         color:var(--principal);
         scale:1.5;
     }
+    #ficha_curso:hover{
+        text-decoration:none;
+    }
 </style>
     <!-- Topbar Start -->
     <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center bg-dark px-lg-12">
-            <div class="col-lg-7">
-                <div class="col-lg-12 text-left d-none d-md-block">
-                    <nav class="navbar navbar-expand-sm navbar-collpses bg-dark p-0">
+            <div class="col-lg-12">
+                <div class="col-lg-7 align-items-center d-none d-md-block">
+                    <nav class="navbar navbar-expand-sm navbar-collpses bg-dark p-0 align-items-center">
                         <ul class="navbar-nav ml-auto mr-n2">
                             <li class="nav-item">
                                 <a id="iconos_redes" class="nav-link text-body" target="blank_" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i id="iconos_redes" class="bi bi-tiktok"></i></a>
@@ -152,12 +156,6 @@
                 <a href="/alvamex/" class="navbar-brand p-0 d-none d-lg-block">
                     <h1 class="m-0 display-4 text-uppercase text-primary">Universidad<span class="text-secondary font-weight-normal">Grupo Alva</span></h1>
                 </a>
-            {% if messages %}
-   
-                {% for message in messages %}
-                    <h3>{{ message }}</h3>
-                {% endfor %}
-            {% endif %}
             </div>
             <div class="col-lg-4 text-center text-lg-right" style="height: 7rem;">
                 <a href="https://www.alvamex.com.mx/"><img class="img-fluid" src="{% static 'imagenes/alvamex.png' %}" alt="Alvamex" style="height: 100%;"></a>
@@ -195,56 +193,27 @@
     </div>
     <!-- Navbar End -->
 
-    <div class="container mt-4">
-        <h1>Lista de Archivos</h1>
-        <ul class="list-group">
-            {% for archivo in archivos %}
-            <li class="list-group-item">
-                {{ archivo.nombre }}
-                <button class="btn btn-primary float-right" onclick="verArchivo('{{ archivo.archivo.url }}')">Ver</button>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <div class="container-fluid text-center mt-1 bg-none">
+        <div class="container-fluid   p-2" id="container">
+            <h1>DOCUMENTOS - CURSOS</h1>
+            <div class="row g-3">
+                {% for curso in cursos %} {% if curso.imagen %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">  
+                        <a href="/static/{{curso.archivo}}"target="_blank" id="ficha_curso">                  
+                            <div class="card-modal" >
 
-    <div class="container-fluid  mt-1 p-5" id="container">
-        <div class="row g-3">
-            {% for curso in cursos %}
-                <script>
-                    $imagen = {{curso.imagen}}
-                </script>
-                <div class="col-lg-3 col-md-4 col-sm-6">                    
-                    <div class="card-modal" onclick="openModal('modal1')">
-                        <img src="{% static 'imagenes/u_alvamex.png' %} " alt="MBA3" style="width: 100%; height: 20vh;">
-                        <p>{{curso.curso}} - {{curso.empresa_curso}}</p>
-                        <p>{{curso.descripcion}}</p>
-
-                        <button class="btn btn-dark center w-25" onclick="verArchivo('{{ curso.curso.url }}')">VER</button>
+                                <img src="/static/{{curso.imagen}}" alt="{{curso.empresa_curso}}" style="width: 100%; height: 20vh;">
+                                <h3>{{curso.curso}} - {{curso.empresa_curso}}</h3>
+                                <p>{{curso.descripcion}}</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <!-- Modal 1 -->
-            {% endfor %}
-        </div>
-    </div>
-     <!-- Modal -->
-     <div class="modal fade" id="archivoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Visualizar Archivo</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Aquí se cargará el archivo dinámicamente -->
-                    <iframe id="archivoIframe" width="100%" height="500px"></iframe>
-                </div>
+                    {% endif %}
+                    <!-- Modal 1 -->
+                {% endfor %}
             </div>
         </div>
     </div>
-
-
 
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-1">
@@ -318,16 +287,6 @@
 		Diseñado para <a style="color: #fff; font-weight:600;" id="copy_footer" href="https://www.alvamex.com.mx/">Alvamex Quimica S.A De C.V</a></p>
     </div>
     <!-- Footer End -->
-
-    <script src=https://code.jquery.com/jquery-3.5.1.min.js></script>
-    <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js></script>
-    <script>
-        function verArchivo(url) {
-            document.getElementById('archivoIframe').src = url;
-            $imagen = {{curso.imagen}}
-            $('#archivoModal').modal('show');
-        }
-    </script>
 
 </body>
 </html>

@@ -207,7 +207,8 @@ def ubicacionesCedis(request):
 
 @login_required
 def universidad(request):
-    cursos = Cursos.objects.all().select_related('user')
+    cursos = Cursos.objects.all()
+    print(cursos)
     return render(request,'universidad.html',{
         'cursos' : cursos
     })

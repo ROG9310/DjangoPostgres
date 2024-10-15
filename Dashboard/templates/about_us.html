@@ -235,10 +235,12 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="/signin/" class="nav-item nav-link">Inicio</a>
+                    <a href="#alvamex" class="nav-item nav-link">Alvamex</a>
+                    <a href="#diamante" class="nav-item nav-link">Diamante</a>
+                    <a href="#alvaenvases" class="nav-item nav-link">alvaenvases</a>
+                    <a href="#trade" class="nav-item nav-link">Trade Polymers</a>
                     <a href="#" class="nav-item nav-link">Promociones</a>
-                    <a href="#ultimasnoticias" class="nav-item nav-link">Noticias Recientes</a>
-
                     <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
                 </div>
             </div>
@@ -246,7 +248,7 @@
     </div>
     <!-- Navbar End -->
     <div class="container-fluid bg-dark">
-        <div class="container-fluid row mt-2 bg-none">
+        <div id="alvamex" class="container-fluid row mt-2 bg-none">
             <div class="col-lg-6 allign-center">
                 <div class="card allign-center">
                     <div class="circle" style="--clr:#0491f6; --bg:#0428f5ae;">
@@ -266,7 +268,7 @@
                 </h1>
             </div>
         </div>
-        <div class="container-fluid row  bg-none">
+        <div  id="diamante"  class="container-fluid row  bg-none">
             <div class="col-lg-6 bg-none p-5">
                 <h1 class="text-center text-md" id="tit_empresa" style="--clr:#34d019">
                     Diamante Pinturas
@@ -286,14 +288,14 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid row bg-none">
+        <div  id="alvaenvases"  class="container-fluid row bg-none">
             <div class="col-lg-6 allign-center">
                 <div class="card allign-center">
                     <div class="circle" style="--clr:#f40d9a; --bg:#701f5fae;">
                         <img src="{% static 'imagenes/ae_blancas.png' %}" alt="" class="logo">
                     </div>
                     <div class="content">
-                        <h2>AlvaEnvases</h2>
+                        <h2>Alva Envases</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
                         <a class="btn btn-dark" href="#">Export more</a>
                     </div>
@@ -302,13 +304,31 @@
             </div>
             <div class="col-lg-6 bg-none p-5">
                 <h1 class="text-center text-md" id="tit_empresa" style="--clr:#f40d9a;">
-                    Alvaenvases
+                    Alva Envases
                 </h1>
             </div>
         </div>
+        <div  id="trade" class="container-fluid row  bg-none">
+            <div class="col-lg-6 bg-none p-5">
+                <h1 class="text-center text-md" id="tit_empresa" style="--clr:#ffe91f">
+                    Trade Polymers
+                </h1>
+            </div>
+            <div class="col-lg-6 bg-none p-5">
+                <div class="card allign-center">
+                    <div class="circle" style="--clr:#ffe91f; --bg:#f6be22fa;">
+                        <img src="{% static 'imagenes/diama_blancas.png' %}" alt="" class="logo">
+                    </div>
+                    <div class="content">
+                        <h2>Trade Polymers</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
+                        <a class="btn btn-dark" href="#">Export more</a>
+                    </div>
+                    <img src="{% static 'imagenes/diama_blancas.png' %}" alt="" class="product_img">
+                </div>
+            </div>
+        </div>
     </div>
-    
-
     
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-0">
@@ -377,7 +397,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid px-sm-3 px-md-5 bg-dark" style="">
+    <div class="container-fluid px-sm-3 px-md-5 bg-dark" >
         <p class="m-0 text-center" style="color: #fff; font-weight:600;">&copy; <span href="#">Copyright</span>. Todos los derechos reservados. 
 		Diseñado para <a style="color: #fff; font-weight:600;" id="copy_footer" href="https://www.alvamex.com.mx/">Alvamex Quimica S.A De C.V</a></p>
     </div>

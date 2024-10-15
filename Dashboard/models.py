@@ -85,3 +85,18 @@ class Cursos(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.curso + ' - ' + self.empresa_curso
+    
+class SolicitudEmpleo(models.Model):
+    puesto = models.CharField(max_length=100)
+    nombres = models.CharField(max_length=80)
+    ap_paterno = models.CharField(max_length=80)
+    ap_materno = models.CharField(max_length=80)
+    escolaridad = models.CharField(max_length=80)
+    correo = models.CharField(max_length=100)
+    numero = models.CharField(max_length=15)
+    likedin = models.CharField(max_length=300)
+    experiencia = models.TextField(blank=True)
+    curriculum =models.FileField(upload_to='filesPDF/CV/')
+    fecha_solicitud = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.nombres + ' - ' + self.puesto
