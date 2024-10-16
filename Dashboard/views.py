@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User 
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from .forms import TaskForm, VacantesAForm,UbicacionesForm
+from .forms import TaskForm, VacantesAForm,UbicacionesForm,SolicitudEmpleoForm
 from .models import Tareas, VacanteActivas,Cursos
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -32,6 +32,23 @@ def createTarea(request):
         except ValueError:
             return render(request, "Create_task.html",{
                 'form': TaskForm,
+                'error': 'Checar datos ingresados'
+            }) 
+            
+def bolsa_trabajo(request):
+    if request.method == 'GET':
+        return render(request, "Solicitud_empleo.html",{
+            'form': SolicitudEmpleoForm
+        }) 
+    else:
+        try:
+            form = SolicitudEmpleoForm(request.POST)
+            nueva_solicitud =form.save(commit=False)
+            nueva_solicitud.save()
+            return redirect('promociones')
+        except ValueError:
+            return render(request, "Crear_proms.html",{
+                'form': SolicitudEmpleoForm,
                 'error': 'Checar datos ingresados'
             }) 
   
