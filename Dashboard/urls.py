@@ -33,5 +33,6 @@ urlpatterns = [
     path('alvaenvases/auniversidad/', views.auniversidad, name="auniversidad"),
     path('alvaenvases/acedis/', views.acedis, name="acedis"),
     path('alvaenvases/aprocesos/', views.aprocesos, name="aprocesos"),
+    path('bolsa_trabajo/',views.bolsa_trabajo, name="bolsa_de_trabajo",)
 ]
  

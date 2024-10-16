@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos
+from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo
 class TareaAdmin(admin.ModelAdmin):
     readonly_fields = ("creacion",)
     
@@ -26,3 +26,8 @@ class CursosAdmin(admin.ModelAdmin):
     readonly_fields = ()
     
 admin.site.register(Cursos, CursosAdmin)
+
+class SolicitudEmpleosAdmin(admin.ModelAdmin):
+    readonly_fields = ("fecha_solicitud",)
+    
+admin.site.register(SolicitudEmpleo, SolicitudEmpleosAdmin)
