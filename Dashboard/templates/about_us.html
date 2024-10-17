@@ -177,43 +177,13 @@
                 </div>
                 <div class="navbar-nav  py-0" style="width: 100%; max-width: 300px;">
                     <!--<a  href="/bolsa_trabajo/" class="nav-item nav-link">BOLSA DE TRABAJO</a>    -->
-                    <buttOn  data-toggle="modal" data-target="#modal-agregar" class="nav-item nav-link"><i class="bi bi-file-text" style="font-size:2vh;"></i> BOLSA DE TRABAJO</buttOn>          
+                    <a  href="/about_us/bolsa_trabajo/" class="nav-item nav-link"><i class="bi bi-file-text" style="font-size:2vh;"></i> BOLSA DE TRABAJO</a>          
                 </div>
             </div>
         </nav>
     </div>
-    <div class="modal fade" id="modal-agregar" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2" style="color: #fff; text-align: center;">SOLICITUD DE EMPLEO</h5>
-                    <button type="button" style="color: #fff;" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class='jumbotron'>
-                    <center>
-                      <div class="text-left" style="max-width:500px">
-                        <form action="cedis/nueva_Ubicacion/" method="post">
-                          {% csrf_token %}
-                          {% for field in form %}
-                          <div class='form-group'>
-                            <label for="{{ field.name }}">{{ field.label }}</label>
-                            {{ field }}
-                          </div>
-                          {% endfor %}
-                          <br>
-                          <center><button type="submit" class="btn btn-success btn-lg">Registrar usuario</button></center>
-                        </form>
-                      </div>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+
     <section id="scene">
         <img src="{% static 'imagenes/parallax/mix-cold-colors-water.jpg' %}" id="splash">
         <img src="{% static 'imagenes/parallax/colibri-1.png' %}" id="text">
@@ -312,9 +282,6 @@
                     <div class="content">
                         <h2>Alva Envases</h2>
                         <p>Nuestro principal producto que es la cubeta industrial de plástico con capacidad de 1, 4 y 19 litros; que son fabricadas en nuestras instalaciones con tecnología de punta y bajo estrictos procesos productivos.</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus cumque magnam consequatur illum blanditiis nihil.</p>
-
                         <a class="btn btn-dark" href="#">Export more</a>
                     </div>
                     <img src="{% static 'imagenes/cubetablanca19lt.png' %}" alt="" class="product_img">

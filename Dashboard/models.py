@@ -72,7 +72,7 @@ class VacanteAct(models.Model):
         return self.vacante + ' - ' + self.departamento
     
 class Empresas(models.Model):
-    empresa = models.CharField(max_length=10)
+    empresa = models.CharField(max_length=50)
     def __str__(self):
         return self.empresa
 
@@ -100,3 +100,34 @@ class SolicitudEmpleo(models.Model):
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.nombres + ' - ' + self.puesto
+    
+class Departamentos(models.Model):
+    departamento =models.CharField(max_length=100)
+    def __str__(self):
+        return self.departamento 
+class Puestos(models.Model):
+    puesto =models.CharField((""), max_length=100)
+    def __str__(self):
+        return self.puesto
+class UsuariosGA(models.Model):
+    nombres = models.CharField(max_length=80)
+    ap_paterno = models.CharField(max_length=80)
+    ap_materno = models.CharField(max_length=80)
+    empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
+    sucursal = models.CharField(max_length=80)
+    departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
+    puesto = models.ForeignKey(Puestos, on_delete=models.CASCADE)
+    ap_materno = models.CharField(max_length=80)
+    correo = models.CharField(max_length=100)
+    extension = models.CharField(max_length=5)
+    fecha_nacimiento= models.DateField(null=True)
+    fecha_ingreso = models.DateField(null=True)
+    rfc =models.CharField(max_length=13)
+    numero_empleado=models.BigIntegerField
+    foto =models.ImageField(upload_to='FotosPlantilla')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombres + ' - ' + self.puesto + ' - ' + self.empresa
+    
+    
+    

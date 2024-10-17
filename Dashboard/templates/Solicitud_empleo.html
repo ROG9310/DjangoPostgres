@@ -11,28 +11,15 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="{% static 'imagenes/GrupoALVA_2.png'%}"  rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <!--link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"-->
-    <link href="{% static 'css/carrusel_css.css' %}" rel="stylesheet">
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
-    <script src="{% static 'javasript/followers.js' %}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/slick.css' %}" rel="stylesheet">
 </head>
 
@@ -48,17 +35,35 @@
     }
     /* Jumbotron */
     .jumbotron {
+<<<<<<< HEAD
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 40px;
         width: 100%;
         max-width: 600px;
+=======
+        margin-top:2%;
+        background-image:url("{% static 'imagenes/parallax/colibri-1.png' %}") ;
+        background-size: 250%;
+        background-repeat:no-repeat;
+        border-radius: 10px;
+        
+        background-color: #1E2024;
+        background-position:center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 1000px;
+        backdrop-filter: blur(10px);
+
+>>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
     }
     
     /* Form */
     form {
         margin-top: 20px;
+<<<<<<< HEAD
     }
     
     .form-group {
@@ -132,7 +137,86 @@
             width: 100%;
             padding: 10px;
         }
+=======
+        width:100%;
+>>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
     }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        filter: drop-shadow(10px 10px 10px #44b5e1) drop-shadow(0 0 10px #44b5e1);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 14px;
+        color: #333;
+        outline: none;
+    }
+
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #5cb85c;
+        background-color: #fff;
+    }
+    
+    
+    /* Centering */
+    .text-left {
+        margin: 0 auto;
+    }
+    
+    #center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Responsivo */
+    @media (max-width: 600px) {
+        .jumbotron {
+            padding: 20px;
+        }
+    
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+    .form-group #id_curriculum{
+        width: 100%;
+        padding: 12px;
+        background: none !important;
+        border: none !important;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #fff !important;
+        font-weight:600;
+        text-align:center !important;
+    }
+    #submit{
+        color: #fff;
+        font-weight:600;
+    }
+    #submit:hover{
+        color :black;
+    }
+
 </style>
     <!-- Topbar Start -->
     <div class="container-fluid d-none d-lg-block">
@@ -164,7 +248,7 @@
         <div class="row align-items-center bg-white py-0 px-lg-3" >
             <div class="col-lg-8">
                 <a href="/alvamex/" class="navbar-brand p-0 d-none d-lg-block">
-                    <h1 class="m-0 display-4 text-uppercase text-primary">Agregar<span class="text-secondary font-weight-normal"> Ubicacion</span></h1>
+                    <h1 class="m-0 display-4 text-uppercase text-primary">Solicitud<span class="text-secondary font-weight-normal"> Empleo</span></h1>
                 </a>
             {% if messages %}
    
@@ -173,8 +257,8 @@
                 {% endfor %}
             {% endif %}
             </div>
-            <div class="col-lg-4 text-center text-lg-right" style="height: 7rem;">
-                <a href="https://www.alvamex.com.mx/"><img class="img-fluid" src="{% static 'imagenes/alvamex.png' %}" alt="Alvamex" style="height: 100%;"></a>
+            <div class="col-lg-4 text-center text-lg-right" style="height: 5rem;">
+                <a href="https://www.alvamex.com.mx/"><img class="img-fluid" src="{% static  'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
             </div>
         </div>
     </div>
@@ -215,22 +299,41 @@
         </nav>
     </div>
     <!-- Navbar End -->
+<<<<<<< HEAD
     <center><div class='jumbotron'>
           <div class="text-left" style="max-width:600px; margin: 0 auto;">
             <form action="cedis/nueva_Ubicacion/" method="post">
               {% csrf_token %}
               {% for field in form %}
               <div class='form-group'>
+=======
+    <div class="container-fluid bg-dark" id="center">
+        <div class='jumbotron'>
+            <div class="text-left" style="max-width:600px; margin: 0 auto;">
+            <h1 class="text-center" >Solicitud de Empleo</h1>
+            <form action="/about_us/bolsa_trabajo/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class='form-group'>
+>>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
                 <label for="{{ field.name }}">{{ field.label }}</label>
                 {{ field }}
-              </div>
-              {% endfor %}
-              <br>
-              <center><button type="submit" class="btn btn-success btn-lg">Registrar usuario</button></center>
+                </div>
+                {% endfor %}
+                <br>
+                <center><button type="submit" class="btn btn-primary btn-lg text-uppercase" id="submit">Enviar datos</button></center>
             </form>
+<<<<<<< HEAD
           </div>
     </div>
 </center>
+=======
+            </div>
+        </div>
+    </div >
+
+
+>>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
 
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-0 d-flex">
@@ -282,16 +385,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+s
 </body>
 
 </html>
