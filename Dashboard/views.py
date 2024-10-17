@@ -44,10 +44,12 @@ def bolsa_trabajo(request):
         try:
             form = SolicitudEmpleoForm(request.POST)
             nueva_solicitud =form.save(commit=False)
+            if len(request.FILES) != 0:
+                form.imagen = request.FILES['imagen']
             nueva_solicitud.save()
-            return redirect('promociones')
+            return redirect('about_us')
         except ValueError:
-            return render(request, "Crear_proms.html",{
+            return render(request, "Solicitud_empleo.html",{
                 'form': SolicitudEmpleoForm,
                 'error': 'Checar datos ingresados'
             }) 
