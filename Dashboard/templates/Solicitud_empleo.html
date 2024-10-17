@@ -138,24 +138,8 @@
         <div class="row align-items-center bg-dark px-lg-12">
             <div class="col-lg-7">
                 <div class="col-lg-12 text-left d-none d-md-block">
-                    <nav class="navbar navbar-expand-sm bg-dark p-0">
-                        <ul class="navbar-nav ml-auto mr-n2">
-                            <li class="nav-item">
-                                <a class="nav-link text-body" target="blank_" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i id="iconos_redes" class="bi bi-tiktok"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-body" target="blank_" href="https://www.facebook.com/Alvamex"><i id="iconos_redes" class="bi bi-facebook"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-body" target="blank_" href="https://www.linkedin.com/company/alvamex/"><i id="iconos_redes" class="bi bi-linkedin"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-body" target="blank_" href="https://www.instagram.com/alvamex_oficial/?hl=es"><i id="iconos_redes" class="bi bi-instagram"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-body" target="blank_" href="https://www.youtube.com/@alvamexpinturas3301"><i id="iconos_redes" class="bi bi-youtube"></i></a>
-                            </li>
-                        </ul>
+                    <nav class="navbar navbar-expand-sm bg-dark p-0" style="height:3vh;">
+
                     </nav>
                 </div>
             </div>
@@ -165,15 +149,9 @@
                 <a href="/alvamex/" class="navbar-brand p-0 d-none d-lg-block">
                     <h1 class="m-0 display-4 text-uppercase text-primary">Solicitud<span class="text-secondary font-weight-normal"> Empleo</span></h1>
                 </a>
-            {% if messages %}
-   
-                {% for message in messages %}
-                    <h3>{{ message }}</h3>
-                {% endfor %}
-            {% endif %}
             </div>
             <div class="col-lg-4 text-center text-lg-right" style="height: 5rem;">
-                <a href="https://www.alvamex.com.mx/"><img class="img-fluid" src="{% static  'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
+                <a href="/"><img class="img-fluid" src="{% static  'imagenes/GrupoAlva.png' %}" alt="Alvamex" style="height: 100%;"></a>
             </div>
         </div>
     </div>
@@ -191,17 +169,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="/alvamex/" class="nav-item nav-link">Inicio</a>
-                    <a href="/promociones/" class="nav-item nav-link">Promociones</a>
-                    <a href="#ultimasnoticias" class="nav-item nav-link">Noticias Recientes</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilidades</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="/universidad/" class="dropdown-item">Universidad</a>
-                            <a href="/cedis/" class="dropdown-item">Ubicación de Cedis</a>
-                            <a href="/pyp/" class="dropdown-item">Procesos y Politicas</a>
-                        </div>
-                    </div>
+                    <a href="/about_us/" class="nav-item nav-link">Inicio</a>
+
                     <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
                 </div>
                 <div class="navbar-nav  py-0" style="width: 100%; max-width: 300px;">
@@ -311,7 +280,25 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-s
+
+
+    <script type="module">
+        import { neonCursor } from 'https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js';
+    
+        neonCursor({
+            el: document.getElementById('app'),
+            shaderPoints: 16,
+            curvePoints: 80,
+            curveLerp: 0.5,
+            radius1: 5,
+            radius2: 30,
+            velocityTreshold: 10,
+            sleepRadiusX: 280,
+            sleepRadiusY: 180,
+            sleepTimeCoefX: 0.0025,
+            sleepTimeCoefY: 0.0025
+        });
+      </script>
 </body>
 
 </html>

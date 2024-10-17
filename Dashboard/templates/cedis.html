@@ -172,7 +172,6 @@ h5{
         <button type="button" class="btn btn-dark" style="margin-left: 1px;" onclick="filterLocations('logistico')">Logísticos</button>
         <button type="button" class="btn btn-dark" style="margin-left: 1px;" onclick="filterLocations('produccion')">Plantas de Producción</button>
         <button type="button" class="btn btn-dark" style="margin-left: 1px;" onclick="filterLocations('venta')">Cedis de Venta</button>
-        <button type="button" class="btn btn-dark" style="margin-left: 1px;" onclick="filterEmpresa('empresa')">Empresa</button>
     </div>
 </div>
 <div class="container-fluid row " style="height: 55vh; margin-top: 1%; padding-left: 2%;">
@@ -209,12 +208,8 @@ h5{
     // Sucursales (Logística, Producción, Sucursales)
     var locations = [
 
-        {type: 'produccion',empresa: "alvamex",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-98.8172342]},
-        {type: 'produccion',empresa: "diamante",name: "TradePolymers Tepeji", coords: [19.8543501,-99.3098862]},
-    ];
-
-
-
+        {type: 'produccion',empresa: "Alvamex",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-98.8172342]},
+        {type: 'produccion',empresa: "Diamante",name: "TradePolymers Tepeji", coords: [19.8543501,-99.3098862]},
         {type: 'produccion',empresa:"Alvamex",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-98.8172342]},
         {type: 'produccion',empresa:"Diamante",name: "TradePolymers Tepeji", coords: [19.8543501,-99.3098862]},
         {type: 'produccion',empresa:"Alvaenvases",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-96.8172342]},
@@ -274,30 +269,6 @@ var pinkIcon = new L.Icon({
     // Añadir todos los marcadores al mapa
     function addMarkers() {
         locations.forEach(function(location) {
-
-            if(location.empresa ==='diamante'){
-                var customIcon = new L.Icon({
-                  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-                  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                  iconSize: [25, 41],
-                  iconAnchor: [12, 41],
-                  popupAnchor: [1, -34],
-                  shadowSize: [41, 41]
-                });
-                
-                }else if(location.empresa ==='alvamex'){
-                var customIcon = new L.Icon({
-                  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-                  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                  iconSize: [25, 41],
-                  iconAnchor: [12, 41],
-                  popupAnchor: [1, -34],
-                  shadowSize: [41, 41]
-                });
-                }
-            var marker = L.marker(location.coords, {icon: customIcon}).addTo(map)
-                .bindPopup(location.name);
-
             if (location.empresa === 'Alvamex'){
             var marker = L.marker(location.coords, {icon: blueIcon}).addTo(map)
                 .bindPopup(location.name + ' ' + location.empresa);
@@ -420,19 +391,6 @@ var pinkIcon = new L.Icon({
     </div>
     <!-- Footer End -->
 
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>
