@@ -293,20 +293,18 @@
                     {% if user.is_authenticated %}
                     <a id="cerrar_sesion" href="/logout" class="nav-item nav-link">CERRAR SESIÓN</a>
                     {% endif %}
-                    
                 </div>
             </div>
         </nav>
     </div>
     <!-- Navbar End -->
-<<<<<<< HEAD
+
     <center><div class='jumbotron'>
           <div class="text-left" style="max-width:600px; margin: 0 auto;">
             <form action="cedis/nueva_Ubicacion/" method="post">
               {% csrf_token %}
               {% for field in form %}
               <div class='form-group'>
-=======
     <div class="container-fluid bg-dark" id="center">
         <div class='jumbotron'>
             <div class="text-left" style="max-width:600px; margin: 0 auto;">
@@ -315,7 +313,6 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <div class='form-group'>
->>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
                 <label for="{{ field.name }}">{{ field.label }}</label>
                 {{ field }}
                 </div>
@@ -323,17 +320,17 @@
                 <br>
                 <center><button type="submit" class="btn btn-primary btn-lg text-uppercase" id="submit">Enviar datos</button></center>
             </form>
-<<<<<<< HEAD
+
           </div>
     </div>
 </center>
-=======
+
             </div>
         </div>
     </div >
 
 
->>>>>>> 089d1b457db91644d4dac7f1ec6863ba2aaca8d9
+
 
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-0 d-flex">
