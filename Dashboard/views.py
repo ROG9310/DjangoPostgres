@@ -144,7 +144,7 @@ def cedis(request):
 def promociones(request):
     vacantes = VacanteActivas.objects.filter(estatus=0).select_related('user')
     return render(request,'promo.html',{
-        'vacantes' : vacantes
+        'vacantes' : vacantes 
     })
     
 @login_required
