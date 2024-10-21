@@ -129,6 +129,7 @@ class UsuariosGA(models.Model):
     def __str__(self):
         return self.nombres + ' - ' + self.puesto + ' - ' + self.empresa
     
+
 class TipoNoticia(models.Model):
     tipo_noticia = models.CharField((""), max_length=20)
     def __str__(self):
@@ -146,6 +147,99 @@ class Noticias(models.Model):
     def __str__(self):
         return self.titulo + '-'+ self.empresa.select_related('empresa')
 
+
+class TipoEquipos(models.Model):
+    tipo_equipo = models.CharField(max_length=50)
+    def __str__(self):
+        return self.tipo_equipo
+class SistemaOperativo(models.Model):
+    sistemaOperativo = models.CharField(max_length=50)
+    def __str__(self):
+        return self.sistemaOperativo
+class DominiosRed(models.Model):
+    dominio = models.CharField(max_length=50)
+    def __str__(self):
+        return self.dominio
+
+class MarcaEquipos(models.Model):
+    marca = models.CharField(max_length=50)
+    def __str__(self):
+        return self.marca
+class MarcaEquiposMouse(models.Model):
+    marca = models.CharField(max_length=50)
+    def __str__(self):
+        return self.marca
+class MarcaEquiposMonitor(models.Model):
+    marca = models.CharField(max_length=50)
+    def __str__(self):
+        return self.marca
+class MarcaEquiposTeclado(models.Model):
+    marca = models.CharField(max_length=50)
+    def __str__(self):
+        return self.marca
+
+class MemoriasRam(models.Model):
+    memoria = models.CharField(max_length=50)
+    def __str__(self):
+        return self.memoria
+class TipoDiscoC(models.Model):
+    disco = models.CharField(max_length=50)
+    capacidad = models.CharField(max_length=20)
+    def __str__(self):
+        return self.disco +'-'+self.capacidad
+class TipoDiscoD(models.Model):
+    disco = models.CharField(max_length=50)
+    capacidad = models.CharField(max_length=20)
+    def __str__(self):
+        return self.disco +'-'+self.capacidad
+
+class VersionesOffice(models.Model):
+    office = models.CharField(max_length=50)
+    def __str__(self):
+        return self.office
+
     
-    
+
+class InventarioSoporte(models.Model):
+    equipo =models.CharField(max_length=100)
+    area = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
+    puesto=models.ForeignKey(Puestos,  on_delete=models.CASCADE)
+    usuario =models.ForeignKey(UsuariosGA, on_delete=models.CASCADE)
+    tipo_equipo = models.ForeignKey(TipoEquipos, on_delete=models.CASCADE)
+    hostname = models.CharField(max_length=50)
+    dominio = models.ForeignKey(DominiosRed,on_delete=models.CASCADE)
+    sufijo_DNS = models.CharField(max_length=20)
+    tipo_equipo = models.ForeignKey(TipoEquipos, on_delete=models.CASCADE)
+    marca = models.ForeignKey(MarcaEquipos, on_delete=models.CASCADE)
+    modelo=models.CharField(max_length=50)
+    num_Serie_Equipo= models.CharField(max_length=50)
+    teclado = models.ForeignKey(MarcaEquiposTeclado, on_delete=models.CASCADE)
+    mouse = models.ForeignKey(MarcaEquiposMouse, on_delete=models.CASCADE)
+    monitor = models.ForeignKey(MarcaEquiposMonitor, on_delete=models.CASCADE)
+    modelo_monitor = models.CharField(max_length=50)
+    monitor_serie = models.CharField(max_length=50)
+    procesador = models.CharField(max_length=100)
+    memoria = models.ForeignKey(MemoriasRam, on_delete=models.CASCADE)
+    tipo_disco_C = models.ForeignKey(TipoDiscoC, on_delete=models.CASCADE)
+    yipo_disco_D = models.ForeignKey(TipoDiscoD, on_delete=models.CASCADE)
+    particion = models.BooleanField(default=False)
+    adaptador_USB_RJ45 = models.BooleanField(default=False)
+    mac_Ethernet = models.CharField(max_length=100)
+    mac_WIFI = models.CharField(max_length=100)
+    ip_activa= models.CharField(max_length=50)
+    nombre_usuario_pc= models.CharField(max_length=50)
+    sistema_operativo =models.ForeignKey(SistemaOperativo, on_delete=models.CASCADE)
+    version_office = models.ForeignKey(VersionesOffice, on_delete=models.CASCADE)
+    antivirus = models.BooleanField(default=False)
+    pdf  = models.BooleanField(default=False)
+    sygnology = models.BooleanField(default=False)
+    anydesk = models.BooleanField(default=False)
+    one_drive = models.BooleanField(default=False)
+    mba3 = models.BooleanField(default=False)
+    netsuite = models.BooleanField(default=False)
+    bizagi = models.BooleanField(default=False)
+    tsplus = models.BooleanField(default=False)
+    impresora_b_n = models.BooleanField(default=False)
+    impresora_color = models.BooleanField(default=False)
+
     
