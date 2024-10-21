@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA
+from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA,Noticias,TipoNoticia
 class TareaAdmin(admin.ModelAdmin):
     readonly_fields = ("creacion",)
     
@@ -43,5 +43,13 @@ class DepartamentosAdmin(admin.ModelAdmin):
 admin.site.register(Departamentos, DepartamentosAdmin)
 class UsuariosGAAdmin(admin.ModelAdmin):
     readonly_fields = ()
+
+class Tipo_NoticiaAdmin(admin.ModelAdmin):
+    readonly_fields = ()
     
-admin.site.register(UsuariosGA, UsuariosGAAdmin)
+admin.site.register(TipoNoticia, Tipo_NoticiaAdmin)
+
+class NoticiasAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(Noticias, NoticiasAdmin)

@@ -129,5 +129,23 @@ class UsuariosGA(models.Model):
     def __str__(self):
         return self.nombres + ' - ' + self.puesto + ' - ' + self.empresa
     
+class TipoNoticia(models.Model):
+    tipo_noticia = models.CharField((""), max_length=20)
+    def __str__(self):
+        return self.tipo_noticia
+    
+class Noticias(models.Model):
+    titulo =models.CharField(max_length=50)
+    imagen =models.ImageField(upload_to='FotosNoticia')
+    descripcion = models.TextField(blank=True)
+    fecha_noticia = models.DateField(null=True)
+    fecha_ingreso = models.DateTimeField(auto_now_add=True)
+    tipo_noticia = models.ForeignKey(TipoNoticia, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.titulo + '-'+ self.empresa.select_related('empresa')
+
+    
     
     

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo
+from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
 
@@ -24,3 +24,11 @@ class SolicitudEmpleoForm(ModelForm):
     class Meta:
         model = SolicitudEmpleo
         fields = ['puesto','nombres','ap_paterno','ap_materno','escolaridad','correo','numero','likedin','experiencia','curriculum']
+
+class NoticiasForm(ModelForm):
+    
+    class Meta:
+        model = Noticias
+        fields = ['titulo','imagen','descripcion','fecha_noticia','tipo_noticia','empresa','user']
+
+
