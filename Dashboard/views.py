@@ -37,22 +37,31 @@ def createTarea(request):
             
 def bolsa_trabajo(request):
     if request.method == 'GET':
-        return render(request, "Solicitud_empleo.html",{
-            'form': SolicitudEmpleoForm
-        }) 
+        return render(request, "Solicitud_empleo.html", {
+            'form': SolicitudEmpleoForm()
+        })
     else:
         try:
-            form = SolicitudEmpleoForm(request.POST)
-            nueva_solicitud =form.save(commit=False)
-            if len(request.FILES) != 0:
-                form.imagen = request.FILES['imagen']
-            nueva_solicitud.save()
-            return redirect('about_us')
+            # Pasar tanto request.POST como request.FILES al formulario
+            form = SolicitudEmpleoForm(request.POST, request.FILES)
+
+            if form.is_valid():  # Validar el formulario antes de guardar
+                nueva_solicitud = form.save(commit=False)  # Crear objeto pero no guardar aún
+                if 'curriculum' in request.FILES:
+                    nueva_solicitud.curriculum = request.FILES['curriculum']  # Asignar archivo
+                nueva_solicitud.save()  # Guardar objeto en la base de datos
+                return redirect('about_us')  # Redireccionar tras éxito
+            else:
+                # Si el formulario no es válido, renderizar el formulario con errores
+                return render(request, "Solicitud_empleo.html", {
+                    'form': form,
+                    'error': 'Datos ingresados no son válidos, por favor revisa.'
+                })
         except ValueError:
-            return render(request, "Solicitud_empleo.html",{
-                'form': SolicitudEmpleoForm,
-                'error': 'Checar datos ingresados'
-            }) 
+            return render(request, "Solicitud_empleo.html", {
+                'form': SolicitudEmpleoForm(),
+                'error': 'Ocurrió un error inesperado. Verifica tus datos.'
+            })
   
 def signup(request):
     if request.method == 'GET':
