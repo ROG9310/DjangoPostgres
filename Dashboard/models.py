@@ -117,7 +117,6 @@ class UsuariosGA(models.Model):
     sucursal = models.CharField(max_length=80)
     departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
     puesto = models.ForeignKey(Puestos, on_delete=models.CASCADE)
-    ap_materno = models.CharField(max_length=80)
     correo = models.CharField(max_length=100)
     extension = models.CharField(max_length=5)
     fecha_nacimiento= models.DateField(null=True)
@@ -240,5 +239,6 @@ class InventarioSoporte(models.Model):
     tsplus = models.BooleanField(default=False)
     impresora_b_n = models.BooleanField(default=False)
     impresora_color = models.BooleanField(default=False)
+    responsiva =models.FileField(upload_to='filesPDF/Responsivas_Soporte/')
 
     
