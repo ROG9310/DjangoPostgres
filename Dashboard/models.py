@@ -207,7 +207,6 @@ class InventarioSoporte(models.Model):
     hostname = models.CharField(max_length=50)
     dominio = models.ForeignKey(DominiosRed,on_delete=models.CASCADE)
     sufijo_DNS = models.CharField(max_length=20)
-    tipo_equipo = models.ForeignKey(TipoEquipos, on_delete=models.CASCADE)
     marca = models.ForeignKey(MarcaEquipos, on_delete=models.CASCADE)
     modelo=models.CharField(max_length=50)
     num_Serie_Equipo= models.CharField(max_length=50)
