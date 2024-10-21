@@ -34,6 +34,105 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-card {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .main-card h1 {
+        color: #333;
+    }
+
+    .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Estilo para modales */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .sub-card {
+        background-color: #fafafa;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-card h2 {
+        margin: 0;
+        color: #555;
+    }
+
+    .pdf-link {
+        display: block;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .pdf-link:hover {
+        background-color: #0056b3;
+    }
+</style>
 
 <body>
     <!-- Topbar Start -->
@@ -92,7 +191,7 @@
                     <a href="/promociones/" class="nav-item nav-link">Promociones</a>
                     <a href="#ultimasnoticias" class="nav-item nav-link">Noticias Recientes</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilidades</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Modulos</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="/universidad/" class="dropdown-item">Universidad</a>
                             <a href="/cedis/" class="dropdown-item">Ubicación de Cedis</a>
@@ -113,10 +212,10 @@
     <!-- Navbar End -->
     
     
-    <!-- block content-->
+    <!-- block content
 
     <div id="carga" class="container mt-5">
-        <!-- Sección de carga de archivos PDF -->
+        Sección de carga de archivos PDF 
         <div class="row">
             <div class="col-md-6">
                 <h2>Cargar Archivos PDF</h2>
@@ -128,18 +227,18 @@
                     <button type="submit" class="btn btn-primary">Subir PDF</button>
                 </form>
             </div>
-            <!-- Repositorio de archivos PDF -->
+            <!-- Repositorio de archivos PDF 
             <div id="rep" class="col-md-6">
                 <h2>Archivos Procesos y Politicas</h2>
                 <ul id="pdfList" class="list-group">
-                    <!-- Aquí se listarán los archivos PDF cargados -->
+                    <!-- Aquí se listarán los archivos PDF cargados 
                     <li class="list-group-item">Documento1.pdf</li>
                     <li class="list-group-item">Documento2.pdf</li>
-                    <!-- Los archivos se deben listar dinámicamente -->
+                    <!-- Los archivos se deben listar dinámicamente
                 </ul>
             </div>
         </div>
-        <!-- Sección de buzón de contacto -->
+        <!-- Sección de buzón de contacto 
         <div id="buzon" class="row mt-5">
             <div class="col-md-12">
                 <h2>Buzón de Contacto</h2>
@@ -161,8 +260,153 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- end block -->
+    end block -->
 
+    <!-- Tarjeta principal -->
+    <div class="container-fluid p-0 d-lg-block">
+        <div class="row align-items-center">
+            <div class=" main-card">
+                <h1>Grupo Alva</h1>
+                <button class="button" id="openModal1">Mas</button>
+            </div>
+            <div class="main-card">
+                <h1>Alvamex</h1>
+                <button class="button" id="openModal2">Mas</button>
+            </div>
+            <div class="main-card">
+                <h1>Diamante</h1>
+                <button class="button" id="openModal3">Mas</button>
+            </div>
+            <div class="main-card">
+                <h1>Alvaenvases</h1>
+                <button class="button" id="openModal4">Mas</button>
+            </div>
+            <div class="main-card">
+                <h1>tradepolymers</h1>
+                <button class="button" id="openModal5">Mas</button>
+            </div>
+            <div class="main-card">
+                <h1>Imex</h1>
+                <button class="button" id="openModal6">Mas</button>
+            </div>
+        </div>
+    </div>   
+    <!-- Modal principal con tarjetas -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal1">&times;</span>
+            <h2>Lista de Documentos</h2>
+
+            <!-- Sub-tarjeta 1 -->
+            <div class="sub-card">
+                <h2>Manual de Gestion</h2>
+                <button class="button" id="openModalDoc1">Ver Detalles</button>
+            </div>
+
+            <!-- Sub-tarjeta 2 -->
+            <div class="sub-card">
+                <h2>Documento 2</h2>
+                <button class="button" id="openModalDoc2">Ver Detalles</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal para Documento 1 -->
+    <div id="modalDoc1" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalDoc1">&times;</span>
+            <h2>Detalles del Documento 1</h2>
+            <p>Descripción del Documento 1.</p>
+            <a class="pdf-link" href="/doc/001 MGI-GALVA-01.05 Manual de Gestión.pdf" target="_blank">Ver Documento 1 (PDF)</a>
+        </div>
+    </div>
+
+    <!-- Modal para Documento 2 -->
+    <div id="modalDoc2" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalDoc2">&times;</span>
+            <h2>Detalles del Documento 2</h2>
+            <p>Descripción del Documento 2.</p>
+            <a class="pdf-link" href="/doc/Proceso Importaciones.pdf" target="_blank">Ver Documento 2 (PDF)</a>
+        </div>
+    </div>
+
+    <script>
+        // Abrir y cerrar el modal principal
+        const modal1 = document.getElementById('modal1');
+        const btnOpenModal1 = document.getElementById('openModal1');
+        const btnCloseModal1 = document.getElementById('closeModal1');
+
+        btnOpenModal1.onclick = function () {
+            modal1.style.display = 'block';
+        };
+
+        btnCloseModal1.onclick = function () {
+            modal1.style.display = 'none';
+        };
+
+        // Abrir y cerrar el modal de Documento 1
+        const modalDoc1 = document.getElementById('modalDoc1');
+        const btnOpenModalDoc1 = document.getElementById('openModalDoc1');
+        const btnCloseModalDoc1 = document.getElementById('closeModalDoc1');
+
+        btnOpenModalDoc1.onclick = function () {
+            modalDoc1.style.display = 'block';
+        };
+
+        btnCloseModalDoc1.onclick = function () {
+            modalDoc1.style.display = 'none';
+        };
+
+        // Abrir y cerrar el modal de Documento 2
+        const modalDoc2 = document.getElementById('modalDoc2');
+        const btnOpenModalDoc2 = document.getElementById('openModalDoc2');
+        const btnCloseModalDoc2 = document.getElementById('closeModalDoc2');
+
+        btnOpenModalDoc2.onclick = function () {
+            modalDoc2.style.display = 'block';
+        };
+
+        btnCloseModalDoc2.onclick = function () {
+            modalDoc2.style.display = 'none';
+        };
+
+        // Cerrar modales al hacer clic fuera de ellos
+        window.onclick = function(event) {
+            if (event.target == modal1) {
+                modal1.style.display = 'none';
+            }
+            if (event.target == modalDoc1) {
+                modalDoc1.style.display = 'none';
+            }
+            if (event.target == modalDoc2) {
+                modalDoc2.style.display = 'none';
+            }
+        };
+    </script>
+
+        <!-- Sección de buzón de contacto -->
+        <div id="buzon" class="container mt-5" style="height: 40vh; width: 40vw;">
+            <div class="col-md-10">
+                <h2>Buzón Comite de Etica</h2>
+        <form id="contactForm" method="POST" action="/send-email">
+            <div class="form-group">
+                <label for="name">Nombre (Opcional):</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Deja en blanco para ser anónimo">
+            </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <input type="hidden" name="recipientEmail" value="comite.etica@alvamex.com.mx">
+                    <button type="submit" class="btn btn-success">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Footer Start -->
     <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-1">

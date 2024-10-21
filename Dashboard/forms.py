@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias
+from .models import InventarioSoporte, Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias,Procesos
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
 
@@ -30,5 +30,8 @@ class NoticiasForm(ModelForm):
     class Meta:
         model = Noticias
         fields = ['titulo','imagen','descripcion','fecha_noticia','tipo_noticia','empresa','user']
-
-
+class ProcesosForm(ModelForm):
+    
+    class Meta:
+        model = Procesos
+        fields = ['titulo','descripcion','documento','departamento','empresa','tipo_documento']

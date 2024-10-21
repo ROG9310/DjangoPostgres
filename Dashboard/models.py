@@ -198,8 +198,6 @@ class VersionesOffice(models.Model):
     def __str__(self):
         return self.office
 
-    
-
 class InventarioSoporte(models.Model):
     equipo =models.CharField(max_length=100)
     area = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
@@ -221,7 +219,7 @@ class InventarioSoporte(models.Model):
     procesador = models.CharField(max_length=100)
     memoria = models.ForeignKey(MemoriasRam, on_delete=models.CASCADE)
     tipo_disco_C = models.ForeignKey(TipoDiscoC, on_delete=models.CASCADE)
-    yipo_disco_D = models.ForeignKey(TipoDiscoD, on_delete=models.CASCADE)
+    tipo_disco_D = models.ForeignKey(TipoDiscoD, on_delete=models.CASCADE)
     particion = models.BooleanField(default=False)
     adaptador_USB_RJ45 = models.BooleanField(default=False)
     mac_Ethernet = models.CharField(max_length=100)
@@ -242,4 +240,19 @@ class InventarioSoporte(models.Model):
     impresora_b_n = models.BooleanField(default=False)
     impresora_color = models.BooleanField(default=False)
 
+class TipoDocumento(models.Model):
+    tipo_documento = models.CharField((""), max_length=20)
+    def __str__(self):
+        return self.tipo_documento
     
+class Procesos(models.Model):
+    titulo =models.CharField(max_length=50)
+    descripcion = models.TextField(blank=True)
+    documento =models.FileField(upload_to='filesPDF/ISO/')
+    departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
+    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.tipo_documento + ' - ' + self.departamento + '-' +self.empresa 
+
+
