@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA,Noticias,TipoNoticia
+from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA,Noticias,TipoNoticia,TipoEquipos,SistemaOperativo,DominiosRed,MarcaEquipos,MarcaEquiposMonitor,MarcaEquiposMouse,MarcaEquiposTeclado,MemoriasRam,TipoDiscoC,TipoDiscoD,VersionesOffice,InventarioSoporte,TipoDocumento,Procesos
 class TareaAdmin(admin.ModelAdmin):
     readonly_fields = ("creacion",)
     
@@ -43,6 +43,8 @@ class DepartamentosAdmin(admin.ModelAdmin):
 admin.site.register(Departamentos, DepartamentosAdmin)
 class UsuariosGAAdmin(admin.ModelAdmin):
     readonly_fields = ()
+    
+admin.site.register(UsuariosGA, UsuariosGAAdmin)
 
 class Tipo_NoticiaAdmin(admin.ModelAdmin):
     readonly_fields = ()
@@ -53,3 +55,74 @@ class NoticiasAdmin(admin.ModelAdmin):
     readonly_fields = ()
     
 admin.site.register(Noticias, NoticiasAdmin)
+
+class TipoEquiposAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(TipoEquipos, TipoEquiposAdmin)
+
+class SistemaOperativoAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(SistemaOperativo, SistemaOperativoAdmin)
+
+class DominiosRedAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(DominiosRed, DominiosRedAdmin)
+
+class MarcaEquiposAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(MarcaEquipos, MarcaEquiposAdmin)
+
+class MarcaEquiposMouseAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(MarcaEquiposMouse, MarcaEquiposMouseAdmin)
+
+class MarcaEquiposMonitorAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(MarcaEquiposMonitor, MarcaEquiposMonitorAdmin)
+
+class MarcaEquiposTecladoAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(MarcaEquiposTeclado, MarcaEquiposTecladoAdmin)
+
+
+class MemoriasRAMAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(MemoriasRam, MemoriasRAMAdmin)
+
+class TipoDiscoCAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(TipoDiscoC, TipoDiscoCAdmin)
+class TipoDiscoDAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(TipoDiscoD, TipoDiscoDAdmin)
+
+class VersionesOfficeAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(VersionesOffice, VersionesOfficeAdmin)
+
+class InventarioSoporteAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(InventarioSoporte, InventarioSoporteAdmin)
+
+class TipoDocumentoAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(TipoDocumento, TipoDocumentoAdmin)
+
+class ProcesosAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(Procesos, ProcesosAdmin)
+  

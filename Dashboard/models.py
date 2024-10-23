@@ -81,7 +81,7 @@ class Cursos(models.Model):
     descripcion = models.TextField(blank=True)
     imagen = models.CharField(max_length=100)
     empresa_curso = models.CharField(max_length=50)
-    archivo = models.CharField(max_length=100)
+    archivo  =models.FileField(upload_to='filesPDF/Cursos/')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.curso + ' - ' + self.empresa_curso
@@ -117,13 +117,12 @@ class UsuariosGA(models.Model):
     sucursal = models.CharField(max_length=80)
     departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
     puesto = models.ForeignKey(Puestos, on_delete=models.CASCADE)
-    ap_materno = models.CharField(max_length=80)
     correo = models.CharField(max_length=100)
     extension = models.CharField(max_length=5)
     fecha_nacimiento= models.DateField(null=True)
     fecha_ingreso = models.DateField(null=True)
     rfc =models.CharField(max_length=13)
-    numero_empleado=models.BigIntegerField
+    numero_empleado = models.BigIntegerField(default=0)
     foto =models.ImageField(upload_to='FotosPlantilla')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
@@ -145,7 +144,7 @@ class Noticias(models.Model):
     empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.titulo + '-'+ self.empresa.select_related('empresa')
+        return self.titulo 
 
 
 class TipoEquipos(models.Model):
@@ -238,6 +237,7 @@ class InventarioSoporte(models.Model):
     tsplus = models.BooleanField(default=False)
     impresora_b_n = models.BooleanField(default=False)
     impresora_color = models.BooleanField(default=False)
+    responsiva =models.FileField(upload_to='filesPDF/Responsivas_Soporte/')
 
 class TipoDocumento(models.Model):
     tipo_documento = models.CharField((""), max_length=20)
@@ -245,7 +245,7 @@ class TipoDocumento(models.Model):
         return self.tipo_documento
     
 class Procesos(models.Model):
-    titulo =models.CharField(max_length=50)
+    titulo = models.CharField(max_length=50)
     descripcion = models.TextField(blank=True)
     documento =models.FileField(upload_to='filesPDF/ISO/')
     departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)

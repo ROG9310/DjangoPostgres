@@ -1,8 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import InventarioSoporte, Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias,Procesos
-from django.contrib.auth.forms import AuthenticationForm
-from django.core.exceptions import ValidationError
+from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias, UsuariosGA,Procesos,TipoNoticia
 
 class TaskForm(ModelForm):
     class Meta:
@@ -30,8 +28,28 @@ class NoticiasForm(ModelForm):
     class Meta:
         model = Noticias
         fields = ['titulo','imagen','descripcion','fecha_noticia','tipo_noticia','empresa','user']
+
+
+
 class ProcesosForm(ModelForm):
     
     class Meta:
         model = Procesos
         fields = ['titulo','descripcion','documento','departamento','empresa','tipo_documento']
+
+
+class UsuariosGAForm(ModelForm):
+    
+    class Meta:
+        model = UsuariosGA
+        fields = ['nombres','ap_paterno','ap_materno','empresa','sucursal','departamento','puesto','correo','extension','fecha_nacimiento','fecha_ingreso','rfc','numero_empleado','foto']
+        
+class TipoNoticiaForm(ModelForm):
+    class Meta:
+        model = TipoNoticia
+        fields = ['tipo_noticia']
+        
+
+        
+        
+        
