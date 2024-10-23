@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TaskForm, VacantesAForm,UbicacionesForm,SolicitudEmpleoForm
-from .models import Tareas, VacanteActivas,Cursos,InventarioSoporte
+from .models import Tareas, VacanteActivas,Cursos,InventarioSoporte,Ubicaciones
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -146,7 +146,8 @@ def empresa(request):
     
 @login_required   
 def cedis(request):
-    return render(request,'cedis.html',{
+    cedis = Ubicaciones.objects.all()
+    return render(request,'cedis.html',{'cedis': cedis
     })
 
 @login_required              
