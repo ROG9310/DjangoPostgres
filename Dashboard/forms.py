@@ -1,7 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias, UsuariosGA,Procesos,TipoNoticia,TipoEquipos,TipoDiscoC,TipoDiscoD,TipoDocumento,DominiosRed,MarcaEquipos,MarcaEquiposMonitor,MarcaEquiposMouse,MarcaEquiposTeclado,MemoriasRam,VersionesOffice,InventarioSoporte
-
+from .models import Tareas, VacanteActivas, Ubicaciones,SolicitudEmpleo,Noticias, UsuariosGA,Procesos,TipoNoticia
 
 class TaskForm(ModelForm):
     class Meta:
