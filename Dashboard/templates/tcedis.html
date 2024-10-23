@@ -183,41 +183,23 @@ h5{
         <button type="button" class="btn btn-dark" style="margin-left: 1px;" onclick="filterLocations('venta')">Cedis de Venta</button>
     </div>
 </div>
-<div class="container-fluid row " style="height: 60vh; padding: 2%; ">
+<div class="container-fluid row" style="height: 60vh; padding: 2%; ">
     <div class="info col-md-4 overflow-auto"style="height: 100%">
         <h2>Ubicaciones</h2>
         <div id="location-info">
+            {% for ubicaciones in cedis %}
             <div class="location">
-                <h5>Nombre: Tienda A</h5>
-                <p>Dirección: Calle Falsa 123</p>
-                <p>Teléfono: (555) 123-4567</p>
+                <h5>Nombre: {{ ubicaciones.ubicacion }}</h5>
+                <p>Gerente: {{ ubicaciones.nombre_titular }}</p><p>{{ ubicaciones.ap_paterno }}</p>
+                <p>Teléfono: {{ ubicaciones.telefono }}</p>
+                <p>Dirección: {{ ubicaciones.direccion }}</p>
+                <p>Teléfono: {{ ubicaciones.telefono }}</p>
+                <p>Extensión: {{ ubicaciones.extension }}</p>
+                <p>Correo: {{ ubicaciones.email }}</p>
+                <p>Tipo de Cedis: {{ ubicaciones.tipo_cedis }}</p>
+                <p>Codigo Sucursal: {{ ubicaciones.codigo_sucursal }}</p>
             </div>
-            <div class="location">
-                <h5>Nombre: Tienda B</h5>
-                <p>Dirección: Avenida Siempre Viva 742</p>
-                <p>Teléfono: (555) 987-6543</p>
-            </div>
-            <div class="location">
-                <h5>Nombre: Tienda A</h5>
-                <p>Dirección: Calle Falsa 123</p>
-                <p>Teléfono: (555) 123-4567</p>
-            </div>
-            <div class="location">
-                <h5>Nombre: Tienda B</h5>
-                <p>Dirección: Avenida Siempre Viva 742</p>
-                <p>Teléfono: (555) 987-6543</p>
-            </div>
-            <div class="location">
-                <h5>Nombre: Tienda A</h5>
-                <p>Dirección: Calle Falsa 123</p>
-                <p>Teléfono: (555) 123-4567</p>
-            </div>
-            <div class="location">
-                <h5>Nombre: Tienda B</h5>
-                <p>Dirección: Avenida Siempre Viva 742</p>
-                <p>Teléfono: (555) 987-6543</p>
-            </div>
-            <!-- Agrega más ubicaciones aquí -->
+            {% endfor %}
         </div>
     </div>
     <div class="map col-md-8">

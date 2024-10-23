@@ -146,7 +146,7 @@ def empresa(request):
     
 @login_required   
 def cedis(request):
-    cedis = Ubicaciones.objects.all()
+    cedis = Ubicaciones.objects.filter(empresa == 'Alvamex')
     return render(request,'cedis.html',{'cedis': cedis
     })
 
