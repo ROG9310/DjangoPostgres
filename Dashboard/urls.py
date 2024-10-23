@@ -34,5 +34,6 @@ urlpatterns = [
     path('alvaenvases/acedis/', views.acedis, name="acedis"),
     path('alvaenvases/aprocesos/', views.aprocesos, name="aprocesos"),
     path('about_us/bolsa_trabajo/',views.bolsa_trabajo, name="bolsa_de_trabajo"),
+    path('inventarios/', views.inventarios, name="inventarios"),
 ]
  

@@ -1,0 +1,58 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1 class="">Inventario</h1>
+    <a href="create/" class="btn btn-dark" style="float: right;"><i class="bi bi-plus-square-fill"></i> Agregar</a>
+</div>
+<div class="container-fluid" style="margin: auto;">
+    <table class="table" style="width: 100%; text-align: center; align-items:  center;">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Tipo Equipo</th>
+                <th scope="col">Host</th>
+                <th scope="col">Dominio</th>
+                <th scope="col">Procesador</th>
+                <th scope="col">Memoria</th>
+                <th scope="col">IP Activa</th>
+                <th scope="col">MBA3</th>
+                <th scope="col">Oracle Netsuite</th>
+                <th scope="col">Bizagi</th>
+                <th scope="col">TSPlus</th>
+                <th scope="col">Impresora B/N</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inventario in inventarios %}
+            <tr class="table-striped">
+                <th scope="row">{{inventario.id}}</th>
+                <td scope="row">{{inventario.usuario}}</td>
+                <td>{{inventario.departamento}}</td>
+                <td>{{inventario.tipo_equipo}}</td>
+                <td>{{inventario.host}}</td>
+                <td>{{inventario.dominio}}</td>
+                <td>{{inventario.procesador}}</td>
+                <td>{{inventario.memoria}}</td>
+                <td>{{inventario.ip_activa}}</td>
+                <td>{{inventario.mba3}}</td>
+                <td>{{inventario.netsuite}}</td>
+                <td>{{inventario.bizagi}}</td>
+                <td>{{inventario.tsplus}}</td>
+                <td>{{inventario.impresora_b_n}}</td>
+                <td>
+                    <a class="btn btn-dark">Editar</a>
+                    <a class="btn btn-dark">Eliminar</a>
+                </td>
+                
+            </tr>
+        
+        
+        {% endfor %}
+    </table>
+
+{% endblock %}

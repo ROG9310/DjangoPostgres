@@ -81,7 +81,7 @@ class Cursos(models.Model):
     descripcion = models.TextField(blank=True)
     imagen = models.CharField(max_length=100)
     empresa_curso = models.CharField(max_length=50)
-    archivo = models.CharField(max_length=100)
+    archivo  =models.FileField(upload_to='filesPDF/Cursos/')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.curso + ' - ' + self.empresa_curso
@@ -122,7 +122,7 @@ class UsuariosGA(models.Model):
     fecha_nacimiento= models.DateField(null=True)
     fecha_ingreso = models.DateField(null=True)
     rfc =models.CharField(max_length=13)
-    numero_empleado=models.BigIntegerField
+    numero_empleado = models.BigIntegerField(default=0)
     foto =models.ImageField(upload_to='FotosPlantilla')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
@@ -144,7 +144,7 @@ class Noticias(models.Model):
     empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.titulo + '-'+ self.empresa.select_related('empresa')
+        return self.titulo 
 
 
 class TipoEquipos(models.Model):
@@ -197,8 +197,6 @@ class VersionesOffice(models.Model):
     def __str__(self):
         return self.office
 
-    
-
 class InventarioSoporte(models.Model):
     equipo =models.CharField(max_length=100)
     area = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
@@ -241,4 +239,19 @@ class InventarioSoporte(models.Model):
     impresora_color = models.BooleanField(default=False)
     responsiva =models.FileField(upload_to='filesPDF/Responsivas_Soporte/')
 
+class TipoDocumento(models.Model):
+    tipo_documento = models.CharField((""), max_length=20)
+    def __str__(self):
+        return self.tipo_documento
     
+class Procesos(models.Model):
+    titulo = models.CharField(max_length=50)
+    descripcion = models.TextField(blank=True)
+    documento =models.FileField(upload_to='filesPDF/ISO/')
+    departamento = models.ForeignKey(Departamentos, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresas, on_delete=models.CASCADE)
+    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.tipo_documento + ' - ' + self.departamento + '-' +self.empresa 
+
+

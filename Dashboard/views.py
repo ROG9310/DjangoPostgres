@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TaskForm, VacantesAForm,UbicacionesForm,SolicitudEmpleoForm
-from .models import Tareas, VacanteActivas,Cursos
+from .models import Tareas, VacanteActivas,Cursos,InventarioSoporte
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -287,4 +287,10 @@ def acedis(request):
 @login_required
 def aprocesos(request):
     return render(request,'aprocesos.html',{
+    })
+@login_required
+def inventarios(request):
+    inventarios = InventarioSoporte.objects.all()
+    return render(request,'inventario.html',{
+       'inventarios' : inventarios
     })
