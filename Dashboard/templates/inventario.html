@@ -1,7 +1,38 @@
-{% extends 'base2.html' %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <title>Alvamex - Intranet News</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <link href="{% static 'imagenes/GrupoALVA_2.png'%}" rel="icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+</head>
+
+<body>  
 <div class="container-fluid">
     <h1 class="">Inventario</h1>
     <a href="create/" class="btn btn-dark" style="float: right;"><i class="bi bi-plus-square-fill"></i> Agregar</a>
@@ -54,5 +85,54 @@
         
         {% endfor %}
     </table>
+ <!-- Footer Start -->
+ <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-1 d-flex">
+    <div class="row py-4">
+        <div class="col-lg-4 col-md-12 mb-5 d-flex">
+            <div class="row align-items-center">
+                <div class="col-4 mb-3 ">
+                    <a href="#noticias_principales"><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/alv_blancas.png'%}" alt="perfect"></a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/diama_blancas.png'%}" alt=""></a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/LogoTrade blanco.png'%}" alt=""></a>
+                </div>
 
-{% endblock %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-5">
+            <div class="text-center" style="color:white;">
+                <center><h5 class="mb-4 text-white text-uppercase font-weight-bold">Encuentranos en</h5></center>
+                <center><p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Guadalajara #29, Colonia Constitución de 1917, Tlanepantla de Baz, Edo. de México C.P 54190</p></center>
+                <center><p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>55 5569 6433, 55 5569 6591</p></center>
+                <center><p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>atencionclientes@alvamex.com.mx</p></center>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mb-5 d-flex">
+            <div class="row align-items-center">
+                <div class="col-4 mb-3">
+                    <a href="#noticias_principales"><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/LogoAlvaEnvases--.png'%}" alt="perfect"></a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/LogoVastro_blanca.png'%}" alt=""></a>
+                </div>
+                <div class="col-4 mb-3">
+                    <a href=""><img style="width: 100%; height: 10vh;" src="{% static 'imagenes/GrupoAlva.png'%}" alt=""></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-sm-1 px-md-1 bg-dark mt-0" >
+    <p class="m-0 text-center" style="color: #fff; font-weight:600;">&copy; <span href="#">Copyright</span>. Todos los derechos reservados. 
+    Diseñado para <a style="color: #fff; font-weight:600;" id="copy_footer" href="https://www.alvamex.com.mx/">Alvamex Quimica S.A De C.V</a></p>
+</div>
+<!-- Footer End -->
+
+</body>
+
+</html>

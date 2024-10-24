@@ -208,17 +208,19 @@ h5{
     }).addTo(map);
 
     // Sucursales (Logística, Producción, Sucursales)
-    var locations = [
+    fetch('/ubicaciones/')
+    .then(response => response.json())
+    .then(data => {
+        var locations = data;
+        
+        // Usa la variable 'locations' como lo hacías antes
+        locations.forEach(location => {
+            console.log(ubicaciones.name, ubicaciones.cordenadas);
+            // Aquí puedes añadir la lógica para mostrar las ubicaciones en el mapa
+        });
+    })
+    .catch(error => console.error('Error:', error));
 
-        {type: 'produccion',empresa: "Alvamex",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-98.8172342]},
-        {type: 'produccion',empresa: "Diamante",name: "TradePolymers Tepeji", coords: [19.8543501,-99.3098862]},
-        {type: 'produccion',empresa:"Alvamex",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-98.8172342]},
-        {type: 'produccion',empresa:"Diamante",name: "TradePolymers Tepeji", coords: [19.8543501,-99.3098862]},
-        {type: 'produccion',empresa:"Alvaenvases",name: "TradePolymers San Martin de las Piramides", coords: [19.7101957,-96.8172342]},
-        {type: 'produccion',empresa:"Trade",name: "TradePolymers Tepeji", coords: [19.85543501,-100.4098862]},
-        {type: 'produccion',empresa:"GrupoAlva",name: "TradePolymers Tepeji", coords: [19.85543501,-103.4098862]},
-
-    ];
 
 var greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
